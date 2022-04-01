@@ -5,10 +5,12 @@ body {
 h1 {
     text-align: center;
 }
-td div{
+td{
     width: 250px;
     height: 200px;
     background-color: blanchedalmond;
+    text-align: center;
+    font-size: 40px;
 }
 button {
     margin: 0 250px;

@@ -2,6 +2,7 @@ let player1, player2
 let boardArray=[null,null,null,
     null,null,null,
     null,null,null];
+    let playerTurn = true;
 const winningConditions = [
     ['topLeft','topCenter','topRight'],
     ['midLeft','midCenter','midRight'],
@@ -13,22 +14,17 @@ const winningConditions = [
     ['topRight','midCenter','bottomLeft']
 ];
 const squares = document.querySelectorAll('td');
-squares.onClick = function(e){
-    e.target.style.backgroundColor='red';
-}
 
-// document.querySelector('table').addEventListener('click', function (e){
-//     const topL = document.getElementById('topLeft');
-//     const topC = document.getElementById('topCenter');
-//     const topR = document.getElementById('topRight');
-//     //const turnRed = document.querySelectorAll('td div');
-//     //squares.style.backgroundColor = 'red';
-    
-//     topL.style.backgroundColor = 'red';
-//     topC.style.backgroundColor = 'red';
-//     topR.style.backgroundColor = 'red';
-// });
-
-
-//logic to win
-//if(winningConditions)
+squares.forEach(square => {
+  square.addEventListener('click', function handleClick(e) {
+    console.log('square clicked', e);
+    if(playerTurn){
+        square.innerText="X";
+        playerTurn = false;
+    }
+    else{
+        square.innerText = "0";
+        playerTurn = true;
+    }
+  })
+});
