@@ -1,0 +1,15 @@
+body {
+    max-width: 500px;
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+}
+td {
+    width: 250px;
+    height: 200px;
+    background-color: blanchedalmond;
+}
+button {
+    margin: 0 250px;
+}
