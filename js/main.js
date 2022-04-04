@@ -1,11 +1,12 @@
-let player1=[];
-let player2=[];
-let remainingMoves = 9;
 
-let boardArray=[null,null,null,
-    null,null,null,
-    null,null,null];
-    let playerTurn = true;
+  let remainingMoves = 9;
+  let playerTurn = true;
+  let player1=[];
+  let player2=[];
+  let boardArray=[null,null,null,
+  null,null,null,
+  null,null,null];
+
 const winningConditions = [
     ['topLeft','topCenter','topRight'],
     ['midLeft','midCenter','midRight'],
@@ -31,6 +32,7 @@ squares.forEach(square => {
         // console.log(getWinner());
         remainingMoves--;
         console.log("remaining moves "+remainingMoves);
+        tieGame();
       }
     else{
         square.innerText = "0";
@@ -41,14 +43,26 @@ squares.forEach(square => {
         playerTurn = true;
         remainingMoves--;
         console.log(`remaining moves ${remainingMoves}`);
+        tieGame();
       }
     })
 });
+function tieGame(){
+  if(remainingMoves===0){
+    let message = document.getElementById('drawGame');
+    message.innerHTML = `<h1>${"draw game"}</h1>`;
+    console.log("draw game");
+    alert("Tie Game");
+  }
+}
 
-// function getWinner(){
-//   for(let i = 0; i < winningConditions.length; i++){
-//     if((player1[i][0] + player1[i][1]+player1[i][2])===3){
-//       return player1[i][0];
-//     }
-//   }
-// }
+
+let checkSubSet = (arr, arr2) => arr2.every(element => arr.includes(element));
+
+function getWinner(){
+  for(let i = 0; i < winningConditions.length; i++){
+    if (checkSubSet(player1,winningConditions[i])){
+      console.log("player wins" );
+    }
+  }
+}
