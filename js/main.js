@@ -56,13 +56,15 @@ function tieGame(){
   }
 }
 
-
+//function should check if player's array is a subset of winning conditions array
 let checkSubSet = (arr, arr2) => arr2.every(element => arr.includes(element));
+let winTest = checkSubSet(["topLeft","topCenter","topRight"],winningConditions[0]);
 
+console.log(winTest);
 function getWinner(){
   for(let i = 0; i < winningConditions.length; i++){
     if (checkSubSet(player1,winningConditions[i])){
-      console.log("player wins" );
+      console.log("player wins");
     }
   }
 }
